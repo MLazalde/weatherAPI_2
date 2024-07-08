@@ -4,6 +4,7 @@ const weatherBox = document.querySelector(".weather-box");
 const weatherDetails = document.querySelector(".weather-details");
 const error404 = document.querySelector(".not-found");
 
+// Add an event listener to the search button
 search.addEventListener("click", () => {
   const APIKey = "ce132417a4d6257ed9381fe8da7e1eaa";
   const city = document.querySelector(".search-box input").value;
@@ -37,23 +38,23 @@ search.addEventListener("click", () => {
 
       switch (json.weather[0].main) {
         case "Clear":
-          image.src = "images/clear.png";
+          image.src = "./assets/images/clear.png";
           break;
 
         case "Rain":
-          image.src = "images/rain.png";
+          image.src = "./assets/images/rainy.png";
           break;
 
         case "Snow":
-          image.src = "images/snow.png";
+          image.src = "./assets/images/snow.png";
           break;
 
         case "Clouds":
-          image.src = "images/cloud.png";
+          image.src = "./assets/images/cloudy.png";
           break;
 
         case "Haze":
-          image.src = "images/mist.png";
+          image.src = "./assets/images/misty.png";
           break;
 
         default:
@@ -63,7 +64,7 @@ search.addEventListener("click", () => {
       temperature.innerHTML = `${parseInt(json.main.temp)}<span>°F</span>`;
       description.innerHTML = `${json.weather[0].description}`;
       humidity.innerHTML = `${json.main.humidity}%`;
-      wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+      wind.innerHTML = `${parseInt(json.wind.speed)}mph`;
 
       weatherBox.style.display = "";
       weatherDetails.style.display = "";
